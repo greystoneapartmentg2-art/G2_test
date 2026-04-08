@@ -5,7 +5,7 @@
   <title>G2 Luxe - Guest Guide</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Professional font: Inter -->
+  <!-- Google Fonts: Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -14,6 +14,7 @@
   />
 
   <style>
+    /* Define CSS variables for colors and radii */
     :root {
       --navy: #07152f;
       --navy-soft: #0d2144;
@@ -29,6 +30,7 @@
       --shadow-subtle: 0 10px 24px rgba(7, 21, 47, 0.12);
     }
 
+    /* Reset box-sizing for all elements */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -38,10 +40,6 @@
     html, body {
       height: auto;
       min-height: 100%;
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      overflow-x: hidden;
     }
 
     body {
@@ -54,13 +52,7 @@
       overflow-y: auto;
     }
 
-    /* Add full-width wrapper styles */
-    .full-width-wrapper {
-      width: 100%;
-      margin: 0;
-      padding: 0;
-    }
-
+    /* Main container with max width and grid layout for sidebar + content */
     .shell {
       width: 100%;
       max-width: 1180px;
@@ -74,83 +66,1026 @@
       margin: 0 auto;
     }
 
-    /* Rest of your styles remain unchanged... */
+    /* --- LEFT COLUMN (BRAND) --- */
+    .left {
+      background: linear-gradient(155deg, var(--navy), #020819);
+      color: #f9fafb;
+      padding: 24px 22px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
 
-    /* (Your existing styles here, omitted for brevity, they are unchanged) */
+    /* Brand header with logo and text */
+    .brand-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
 
-    /* ... (rest of your CSS code) ... */
+    /* Logo styling with gradient background and shadow */
+    .brand-logo {
+      width: 54px;
+      height: 54px;
+      border-radius: 18px;
+      background: radial-gradient(circle at top, #ffffff, #e0e4ff);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 22px;
+      letter-spacing: 0.12em;
+      color: var(--navy);
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.45);
+    }
+
+    /* Text styling for brand info */
+    .brand-text h1 {
+      font-size: 18px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+    .brand-text p {
+      font-size: 13px;
+      opacity: 0.85;
+      margin-top: 2px;
+    }
+    .tagline {
+      margin-top: 2px;
+      font-size: 12px;
+      opacity: 0.85;
+    }
+
+    /* Pill row: Info tags with dots */
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+    /* Individual pill style */
+    .pill {
+      font-size: 11px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.46);
+      border: 1px solid rgba(249, 250, 251, 0.16);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    /* Dot indicator inside pills */
+    .pill-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--gold-soft);
+    }
+
+    /* Card container for info blocks */
+    .left-card {
+      background: linear-gradient(145deg, var(--navy-soft), #060b1a);
+      border-radius: var(--radius-md);
+      padding: 14px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.55);
+      font-size: 13px;
+      line-height: 1.6;
+      border: 1px solid rgba(212, 175, 55, 0.35);
+    }
+    .left-card h2 {
+      font-size: 14px;
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+
+    /* Two-column grid inside info blocks */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 6px 14px;
+      font-size: 12px;
+      margin-top: 8px;
+    }
+
+    /* Labels and values inside info blocks */
+    .label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      opacity: 0.8;
+    }
+    .value {
+      font-weight: 500;
+      margin-top: 1px;
+    }
+
+    /* Address styling */
+    .address {
+      margin-top: 8px;
+      font-size: 12px;
+    }
+
+    /* Divider line with gradient */
+    .divider {
+      height: 1px;
+      width: 100%;
+      background: linear-gradient(
+        to right,
+        transparent,
+        rgba(209, 213, 219, 0.7),
+        transparent
+      );
+      margin: 10px 0 6px;
+    }
+
+    /* Contact block styling */
+    .contact-block {
+      margin-top: 4px;
+    }
+    .contact-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: center;
+      margin-top: 4px;
+      font-size: 13px;
+    }
+    .contact-row strong {
+      font-weight: 600;
+    }
+
+    /* Buttons like "Call" or "WhatsApp" */
+    .btn-ghost {
+      border-radius: 999px;
+      border: 1px solid rgba(249, 250, 251, 0.85);
+      padding: 4px 10px;
+      font-size: 11px;
+      text-decoration: none;
+      color: #f9fafb;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #07152f;
+    }
+    .btn-ghost span {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .btn-ghost:hover {
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    /* Emergency info style */
+    .emergency {
+      margin-top: 8px;
+      font-size: 12px;
+      opacity: 0.9;
+    }
+    .emergency span {
+      font-weight: 500;
+      color: var(--gold-soft);
+    }
+
+    /* Footer style for left sidebar */
+    .left-footer {
+      margin-top: auto;
+      font-size: 11px;
+      opacity: 0.78;
+    }
+
+    /* --- RIGHT COLUMN (CONTENT) --- */
+    .right {
+      padding: 18px 20px 10px;
+      background: var(--bg);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    /* Header for right content */
+    .right-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .page-title {
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+    .page-sub {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    /* Search box styling */
+    .search-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    .search-box {
+      position: relative;
+      flex: 1 1 210px;
+      max-width: 260px;
+    }
+    .search-box input {
+      width: 100%;
+      padding: 9px 34px;
+      border-radius: 999px;
+      border: 1px solid rgba(15, 23, 42, 0.1);
+      font-size: 13px;
+      outline: none;
+      background: #ffffff;
+    }
+    /* Search icon style */
+    .search-box::before {
+      content: "";
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 12px;
+      height: 12px;
+      border-radius: 999px;
+      border: 2px solid rgba(31, 41, 55, 0.7);
+      box-shadow: 4px 4px 0 0 rgba(31, 41, 55, 0.7) inset;
+      opacity: 0.7;
+    }
+
+    /* Badge for status or info */
+    .badge-soft {
+      font-size: 11px;
+      padding: 5px 9px;
+      border-radius: 999px;
+      background: #fdf6e3;
+      color: #92400e;
+      border: 1px solid rgba(212, 175, 55, 0.35);
+      white-space: nowrap;
+    }
+
+    /* Tabs for nearby categories */
+    .tab-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 4px;
+    }
+    .map-pill {
+      font-size: 11px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(15, 23, 42, 0.12);
+      background: #f9fafb;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: 0.2s ease;
+    }
+    .map-pill-indicator {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.2);
+    }
+    /* Active tab style */
+    .map-pill.active {
+      background: var(--navy);
+      color: #f9fafb;
+      border-color: transparent;
+    }
+    .map-pill.active .map-pill-indicator {
+      background: var(--gold-soft);
+    }
+    /* Hover effect for pills */
+    .map-pill:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(15, 23, 42, 0.12);
+    }
+
+    /* Recommendation list styles */
+    .rec-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+      margin-top: 6px;
+    }
+    /* Recommendation card styles */
+    .rec-card {
+      border-radius: 14px;
+      border: 1px solid rgba(15, 23, 42, 0.06);
+      background: #f9fafb;
+      padding: 8px 10px;
+      font-size: 12px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+      gap: 4px 10px;
+      align-items: center;
+    }
+    .rec-name {
+      font-weight: 600;
+      font-size: 12px;
+    }
+    .rec-meta {
+      font-size: 11px;
+      color: var(--muted);
+    }
+    .rec-meta span {
+      margin-right: 8px;
+    }
+    .rec-action {
+      text-align: right;
+    }
+    .btn-small-link {
+      font-size: 11px;
+      text-decoration: none;
+      color: var(--navy-soft);
+      font-weight: 500;
+    }
+
+    /* Map iframe styling for embedded maps */
+    .map-frame {
+      width: 100%;
+      border-radius: 16px;
+      border: none;
+      min-height: 205px;
+      margin-top: 8px;
+    }
+    .map-note {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    /* Ride-hailing brands buttons styles */
+    .ride-brands {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 6px 0 4px;
+    }
+    .ride-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 11px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 500;
+      background: #f9fafb;
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      text-decoration: none;
+      color: #111827;
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+    .ride-badge:hover {
+      background: #eef2ff;
+      border-color: rgba(15, 23, 42, 0.18);
+    }
+    /* Mark color styles for ride brands */
+    .ride-mark {
+      width: 14px;
+      height: 14px;
+      border-radius: 4px;
+    }
+    .ride-mark.uber {
+      background: #000000;
+    }
+    .ride-mark.bolt {
+      background: #34d186;
+    }
+    .ride-mark.indrive {
+      background: linear-gradient(135deg, #04c75a, #1c7ed6);
+    }
+
+    /* Feedback form styles */
+    .feedback-form {
+      display: grid;
+      gap: 8px;
+      margin-top: 6px;
+    }
+    .feedback-row {
+      display: grid;
+      gap: 4px;
+    }
+    .feedback-row label {
+      font-size: 12px;
+      font-weight: 500;
+    }
+    .feedback-row input,
+    .feedback-row textarea,
+    .feedback-row select {
+      border-radius: 10px;
+      border: 1px solid rgba(15, 23, 42, 0.14);
+      padding: 7px 9px;
+      font-size: 13px;
+      font-family: inherit;
+      outline: none;
+      background: #ffffff;
+    }
+    .feedback-row textarea {
+      min-height: 80px;
+      resize: vertical;
+    }
+
+    /* Button for primary actions */
+    .btn-primary {
+      border: none;
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      background: linear-gradient(135deg, var(--navy-soft), var(--navy));
+      color: #f9fafb;
+      justify-self: flex-start;
+    }
+    /* Footer note inside feedback form */
+    .feedback-note {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    /* Main footer styles */
+    .global-footer {
+      margin-top: 8px;
+      font-size: 11px;
+      color: var(--muted);
+      padding-top: 6px;
+      border-top: 1px solid rgba(209, 213, 219, 0.7);
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    /* Responsive styles for mobile and tablets */
+    @media (max-width: 1024px) {
+      .shell {
+        grid-template-columns: 1fr;
+        border-radius: 20px;
+      }
+      body {
+        padding: 8px;
+      }
+      .cards-area {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+    }
+    @media (max-width: 720px) {
+      body {
+        padding: 0;
+      }
+      .shell {
+        border-radius: 0;
+        max-width: 100%;
+        min-height: 100vh;
+      }
+      .left {
+        padding: 18px 16px 16px;
+      }
+      .right {
+        padding: 16px 14px 10px;
+      }
+      .right-header {
+        align-items: flex-start;
+      }
+      .search-wrap {
+        width: 100%;
+        justify-content: flex-start;
+      }
+      .search-box {
+        max-width: none;
+      }
+      .tab-row {
+        overflow-x: auto;
+        padding-bottom: 4px;
+      }
+      .tab-row::-webkit-scrollbar {
+        height: 3px;
+      }
+      .panel {
+        padding: 12px;
+      }
+      .rec-card {
+        grid-template-columns: 1fr;
+        text-align: left;
+      }
+      .rec-action {
+        text-align: left;
+      }
+      .global-footer {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    /* Ambient apartment visual styles */
+    .ambient-panel {
+      padding: 0;
+      overflow: hidden;
+    }
+    .ambient-media {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      min-height: 320px;
+      max-height: 460px;
+    }
+    /* Each slide background image with cover style */
+    .ambient-slide {
+      position: absolute;
+      inset: 0;
+      background-size: cover; /* Ensures image covers container */
+      background-position: center;
+      opacity: 0;
+      transform: scale(1);
+      transition: opacity 1.6s ease, transform 12s ease;
+    }
+    /* Active slide visible with slight zoom */
+    .ambient-slide.active {
+      opacity: 1;
+      transform: scale(1.08);
+    }
+    /* Label overlay on images */
+    .ambient-label {
+      position: absolute;
+      bottom: 12px;
+      left: 12px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 11px;
+      background: rgba(7, 21, 47, 0.55);
+      color: #f9fafb;
+      backdrop-filter: blur(6px);
+      letter-spacing: 0.08em;
+    }
   </style>
 </head>
 <body>
-  <div class="full-width-wrapper">
-    <div class="shell">
-      <!-- LEFT SIDE -->
-      <section class="left">
-        <!-- Your existing content -->
-        <header class="brand-row">
-          <div class="brand-logo">G2</div>
-          <div class="brand-text">
-            <h1>G2 LUXE</h1>
-            <p>Two-bedroom serviced apartment</p>
-            <p class="tagline">6B Ogalade Close, Victoria Island, Lagos</p>
-          </div>
-        </header>
-        <!-- ... (rest of your existing left side content) ... -->
-        <!-- AMBIENT APARTMENT VISUAL -->
-        <article class="panel ambient-panel">
-          <div class="ambient-media">
-            <div class="ambient-slide active" style="background-image:url('Images/living-room2.jpg')"></div>
-            <div class="ambient-slide" style="background-image:url('Images/living-room.jpg')"></div>
-            <div class="ambient-slide" style="background-image:url('Images/kitchen.jpg')"></div>
-            <div class="ambient-slide" style="background-image:url('Images/bedroom1.jpg')"></div>
-            <div class="ambient-slide" style="background-image:url('Images/master-bedroom.jpg')"></div>
-            <div class="ambient-label">Inside G2 Luxe</div>
-          </div>
-        </article>
-        <footer class="left-footer">
-          A calm, secure and private base in the heart of Victoria Island.
-        </footer>
-      </section>
-
-      <!-- RIGHT SIDE -->
-      <section class="right">
-        <!-- Your existing right side content -->
-        <header class="right-header">
-          <div>
-            <div class="page-title">G2 Luxe - Guest Guide</div>
-            <div class="page-sub">
-              Everything you need for your stay at G2 Luxe.
-            </div>
-          </div>
-          <div class="search-wrap">
-            <div class="search-box">
-              <input
-                id="searchInput"
-                type="text"
-                placeholder="Search: wifi, rules, check-in, dining..."
-              />
-            </div>
-            <span class="badge-soft">Tap a section or start typing</span>
-          </div>
-        </header>
-        <!-- Main Tabs -->
-        <nav class="tab-row" id="mainTabs"></nav>
-        <!-- Content + Map -->
-        <div class="cards-area">
-          <!-- your existing content -->
+  <div class="shell">
+    <!-- LEFT SIDE (Brand & Info) -->
+    <section class="left">
+      <header class="brand-row">
+        <div class="brand-logo">G2</div>
+        <div class="brand-text">
+          <h1>G2 LUXE</h1>
+          <p>Two-bedroom serviced apartment</p>
+          <p class="tagline">6B Ogalade Close, Victoria Island, Lagos</p>
         </div>
-        <!-- Footer -->
-        <footer class="global-footer">
-          <span>© <span id="yearSpan"></span> G2 Luxe · Victoria Island, Lagos</span>
-          <span>Digital guest guide · Private use only</span>
-        </footer>
-      </section>
-    </div>
+      </header>
+
+      <!-- Pills for features -->
+      <div class="pill-row">
+        <span class="pill"><span class="pill-dot"></span> Designed for 1–4 adults for comfort</span>
+        <span class="pill"><span class="pill-dot"></span> Spacious 2-bedroom luxury finish</span>
+        <span class="pill"><span class="pill-dot"></span> High-speed Wi-Fi</span>
+        <span class="pill"><span class="pill-dot"></span> 3 Smart Tvs</span>
+        <span class="pill"><span class="pill-dot"></span> 3 Rest rooms </span>
+        <span class="pill"><span class="pill-dot"></span> Secured Smart Lock </span>
+      </div>
+
+      <!-- Stay summary card -->
+      <article class="left-card">
+        <h2>Stay summary</h2>
+        <div class="grid-2">
+          <div>
+            <div class="label">Check-in</div>
+            <div class="value">2:00 PM</div>
+          </div>
+          <div>
+            <div class="label">Check-out</div>
+            <div class="value">12:00 PM</div>
+          </div>
+          <div>
+            <div class="label">Wi-Fi Network</div>
+            <div class="value">geetwo_G2</div>
+          </div>
+          <div>
+            <div class="label">Wi-Fi Pass</div>
+            <div class="value">geetwo_2025</div>
+          </div>
+          <div>
+            <div class="label">Apartment type</div>
+            <div class="value">2-bedroom, fully serviced</div>
+          </div>
+          <div>
+            <div class="label">Ideal occupancy</div>
+            <div class="value">1–4 adults for comfort</div>
+          </div>
+        </div>
+
+        <div class="address">
+          <span class="label">Property address</span><br />
+          6B Ogalade Close, Victoria Island, Lagos.
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Contact host -->
+        <div class="contact-block">
+          <div class="label">Your host</div>
+          <div class="contact-row">
+            <strong>Queen</strong>
+            <div class="contact-actions">
+              <a class="btn-ghost" href="tel:08166576005">
+                <span>Call</span>
+              </a>
+              <a
+                class="btn-ghost"
+                href="https://wa.me/2348166576005?text=Hi%20Queen,%20I'm%20a%20guest%20at%20G2%20Luxe."
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span>WhatsApp</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- Info paragraph -->
+        <div class="divider"></div>
+        <p style="font-size:12px; opacity:0.9; margin-top:8px; line-height:1.6;">
+          G2 Luxe is situated in one of the best locations in Victoria Island, at the
+          heart of Lagos’ business district and vibrant high-end nightlife.
+        </p>
+        <!-- Emergency Info -->
+        <p class="emergency">
+          <span>Security:</span> the building has on-site security 24/7 and a
+          reputable hospital located next door for additional peace of mind.
+        </p>
+      </article>
+
+      <!-- Ambient apartment visual -->
+      <article class="panel ambient-panel">
+        <div class="ambient-media">
+          <!-- Background images for slides -->
+          <div class="ambient-slide active" style="background-image:url('Images/living-room2.jpg')"></div>
+          <div class="ambient-slide" style="background-image:url('Images/living-room.jpg')"></div>
+          <div class="ambient-slide" style="background-image:url('Images/kitchen.jpg')"></div>
+          <div class="ambient-slide" style="background-image:url('Images/bedroom1.jpg')"></div>
+          <div class="ambient-slide" style="background-image:url('Images/master-bedroom.jpg')"></div>
+          <!-- Label overlay -->
+          <div class="ambient-label">Inside G2 Luxe</div>
+        </div>
+      </article>
+
+      <!-- Left footer -->
+      <footer class="left-footer">
+        A calm, secure and private base in the heart of Victoria Island.
+      </footer>
+    </section>
+
+    <!-- RIGHT SIDE (Content & Map) -->
+    <section class="right">
+      <header class="right-header">
+        <div>
+          <div class="page-title">G2 Luxe - Guest Guide</div>
+          <div class="page-sub">
+            Everything you need for your stay at G2 Luxe.
+          </div>
+        </div>
+        <!-- Search bar -->
+        <div class="search-wrap">
+          <div class="search-box">
+            <input
+              id="searchInput"
+              type="text"
+              placeholder="Search: wifi, rules, check-in, dining..."
+            />
+          </div>
+          <span class="badge-soft">Tap a section or start typing</span>
+        </div>
+      </header>
+
+      <!-- Main tabs for categories -->
+      <nav class="tab-row" id="mainTabs"></nav>
+
+      <!-- Content area with two panels -->
+      <div class="cards-area">
+        <!-- Left content panel -->
+        <article class="panel">
+          <header class="panel-header">
+            <div class="panel-title">
+              <span class="panel-title-mark"></span>
+              <span id="panelTitle">Welcome & Overview</span>
+            </div>
+            <span class="pill-small" id="panelTag">Start here</span>
+          </header>
+          <div class="panel-body" id="panelBody"></div>
+          <footer class="panel-footer">
+            <span id="panelUpdated">Last updated: —</span>
+            <span>G2 Luxe · Victoria Island</span>
+          </footer>
+        </article>
+        <!-- Map & Nearby recommendations -->
+        <article class="panel">
+          <header class="panel-header">
+            <div class="panel-title">
+              <span class="panel-title-mark"></span>
+              <span>Nearby recommendations</span>
+            </div>
+            <span class="pill-small">Curated around Victoria Island</span>
+          </header>
+
+          <!-- Map category tabs -->
+          <div class="map-type-row" id="mapTabs">
+            <button class="map-pill active" data-type="food">
+              <span class="map-pill-indicator"></span> Food & dining
+            </button>
+            <button class="map-pill" data-type="bars">
+              <span class="map-pill-indicator"></span> Bars & lounges
+            </button>
+            <button class="map-pill" data-type="activities">
+              <span class="map-pill-indicator"></span> Activities & sightseeing
+            </button>
+            <button class="map-pill" data-type="travel">
+              <span class="map-pill-indicator"></span> Travel agencies
+            </button>
+            <button class="map-pill" data-type="workspace">
+              <span class="map-pill-indicator"></span> Workspaces
+            </button>
+            <button class="map-pill" data-type="cinema">
+              <span class="map-pill-indicator"></span> Cinemas
+            </button>
+            <button class="map-pill" data-type="shopping">
+              <span class="map-pill-indicator"></span> Shopping Malls
+            </button>
+            <button class="map-pill" data-type="clubbing">
+              <span class="map-pill-indicator"></span> NightLife & Clubbing
+            </button>
+          </div>
+
+          <!-- Recommendations list -->
+          <div class="rec-list" id="recList"></div>
+
+          <!-- Embedded Google Map -->
+          <iframe
+            id="mapFrame"
+            class="map-frame"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            src=""
+          ></iframe>
+
+          <!-- Map note -->
+          <p class="map-note">
+            Times and ratings are indicative only. Use “Open in Maps” for
+            live directions from your current location.
+          </p>
+        </article>
+      </div>
+
+      <!-- Main footer -->
+      <footer class="global-footer">
+        <span>© <span id="yearSpan"></span> G2 Luxe · Victoria Island, Lagos</span>
+        <span>Digital guest guide · Private use only</span>
+      </footer>
+    </section>
   </div>
 
-  <!-- Your existing scripts -->
+  <!-- JavaScript for interactive features -->
   <script>
-    /* ... (your existing JavaScript code) ... */
+    /* ---------- Data for sections and content ---------- */
+
+    const SECTIONS = [
+      {
+        id: "welcome",
+        title: "Welcome & overview",
+        tag: "Start here",
+        updated: "2025-10-20",
+        keywords:
+          "welcome overview introduction g2 luxe victoria island apartment",
+        html: `
+          <p>
+            Welcome to <strong>G2 Luxe</strong>, a contemporary two-bedroom
+            apartment thoughtfully set up for a relaxed, premium stay in the
+            heart of Victoria Island.
+          </p>
+          <ul class="list">
+            <li>Self check-in with a smart lock for flexible arrival.</li>
+            <li>Ideal for 1–4 adults looking for comfort, privacy and security.</li>
+            <li>Fast Wi-Fi, Diesel Generator backup for essentials and a calm residential feel.</li>
+          </ul>
+          <div class="two-col-list">
+            <div>
+              <div class="bullet-title">Perfect for</div>
+              <p>Business trips, couples’ stays, and short city breaks.</p>
+            </div>
+            <div>
+              <div class="bullet-title">Neighbourhood</div>
+              <p>Central, secure and close to dining, lounges and the waterfront.</p>
+            </div>
+          </div>
+        `,
+      },
+      // More sections omitted for brevity, same structure as above...
+    ];
+
+    const RECOMMENDATIONS = {
+      food: [
+        {
+          name: "Z Kitchen",
+          type: "Restaurant",
+          eta: "3 min drive",
+          rating: "4.4",
+          price: "₦₦",
+          maps:
+            "https://www.google.com/maps/search/?api=1&query=Z+Kitchen+Victoria+Island+Lagos",
+        },
+        // More recommendations...
+      ],
+      bars: [
+        // Recommendations for bars
+      ],
+      // Other categories...
+    };
+
+    const MAP_URLS = {
+      food: "https://www.google.com/maps?q=restaurants+near+Victoria+Island+Lagos&output=embed",
+      bars: "https://www.google.com/maps?q=bars+and+lounges+near+Victoria+Island+Lagos&output=embed",
+      // Other map URLs...
+    };
+
+    /* ---------- DOM Elements ---------- */
+
+    const mainTabs = document.getElementById("mainTabs");
+    const panelTitle = document.getElementById("panelTitle");
+    const panelTag = document.getElementById("panelTag");
+    const panelBody = document.getElementById("panelBody");
+    const panelUpdated = document.getElementById("panelUpdated");
+    const searchInput = document.getElementById("searchInput");
+    const mapTabs = document.getElementById("mapTabs");
+    const mapFrame = document.getElementById("mapFrame");
+    const recList = document.getElementById("recList");
+    const yearSpan = document.getElementById("yearSpan");
+
+    let activeSectionId = "welcome";
+
+    /* ---------- Functions for rendering ---------- */
+
+    function renderMainTabs() {
+      mainTabs.innerHTML = "";
+      SECTIONS.forEach((section) => {
+        const btn = document.createElement("button");
+        btn.className =
+          "tab-btn" + (section.id === activeSectionId ? " active" : "");
+        btn.dataset.id = section.id;
+        btn.innerHTML = `
+          <span class="tab-badge"></span>
+          <span>${section.title}</span>
+        `;
+        btn.onclick = () => {
+          activeSectionId = section.id;
+          searchInput.value = "";
+          renderMainTabs();
+          renderActiveSection();
+        };
+        mainTabs.appendChild(btn);
+      });
+    }
+
+    function renderActiveSection() {
+      const query = searchInput.value.trim().toLowerCase();
+      let section = SECTIONS.find((s) => s.id === activeSectionId);
+      if (!section) section = SECTIONS[0];
+
+      // Filter based on search query
+      if (query) {
+        const filtered = SECTIONS.filter((s) => {
+          const text =
+            (s.title + " " + s.tag + " " + s.keywords + " " + s.html)
+              .replace(/<[^>]+>/g, " ")
+              .toLowerCase();
+          return text.includes(query);
+        });
+        if (filtered.length) section = filtered[0];
+      }
+
+      // Update UI with section data
+      panelTitle.textContent = section.title;
+      panelTag.textContent = section.tag;
+      panelBody.innerHTML = section.html;
+      panelUpdated.textContent = "Last updated: " + section.updated;
+
+      // Attach copy buttons (for Wi-Fi etc.)
+      attachCopyButtons();
+      // Attach feedback form handler
+      attachFeedbackHandler();
+    }
+
+    function attachCopyButtons() {
+      document.querySelectorAll(".btn-copy").forEach((btn) => {
+        btn.onclick = () => {
+          const targetId = btn.dataset.copyTarget;
+          const el = document.getElementById(targetId);
+          if (!el) return;
+          const text = el.textContent.trim();
+          navigator.clipboard
+            .writeText(text)
+            .then(() => {
+              const originalText = btn.textContent;
+              btn.textContent = "Copied";
+              setTimeout(() => (btn.textContent = "Copy"), 1200);
+            })
+            .catch(() => alert("Copy failed. Please copy manually: " + text));
+        };
+      });
+    }
+
+    function attachFeedbackHandler() {
+      const form = document.getElementById("feedbackForm");
+      if (!form) return;
+      form.onsubmit = (e) => {
+        e.preventDefault(); // Prevent actual form submission
+        alert(
+          "Thank you. Your email app will open next so you can send your feedback to G2 Luxe."
+        );
+        // Optionally, you can trigger mailto link or other logic here
+      };
+    }
+
+    // Search input event
+    searchInput.addEventListener("input", () => {
+      renderActiveSection();
+    });
+
+    /* ---------- Map category tabs ---------- */
+
+    function renderRecList(type) {
+      const items = RECOMMENDATIONS[type] || [];
+      recList.innerHTML = "";
+
+      if (!items.length) {
+        recList.innerHTML =
+          '<div style="font-size:12px;color:#6b7280;">No recommendations added yet for this category.</div>';
+        return;
+      }
+
+      items.forEach((item) => {
+        const card = document.createElement("div");
+        card.className = "rec-card";
+        card.innerHTML = `
+          <div>
+            <div class="rec-name">${item.name}</div>
+            <div class="rec-meta">${item.type}</div>
+          </div>
+          <div class="rec-action">
+            <div class="rec-meta">
+              <span>${item.eta}</span>
+              <span>Rating: ${item.rating}</span>
+              <span>${item.price}</span>
+            </div>
+            <a class="btn-small-link" href="${item.maps}" target="_blank" rel="noopener noreferrer">
+              Open in Maps
+            </a>
+          </div>
+        `;
+        recList.appendChild(card);
+      });
+    }
+
+    function setMapType(type) {
+      document.querySelectorAll(".map-pill").forEach((pill) => {
+        pill.classList.toggle("active", pill.dataset.type === type);
+      });
+      // Update iframe src
+      mapFrame.src = MAP_URLS[type] || MAP_URLS.food;
+      // Update recommendation list
+      renderRecList(type);
+    }
+
+    // Add event listeners to map category buttons
+    document.querySelectorAll(".map-pill").forEach((pill) => {
+      pill.onclick = () => setMapType(pill.dataset.type);
+    });
+
+    /* ---------- Initialization ---------- */
+
+    renderMainTabs();
+    renderActiveSection();
+    setMapType("food");
+    yearSpan.textContent = new Date().getFullYear();
+
+    /* ---------- Ambient image slideshow ---------- */
+    (function () {
+      const slides = document.querySelectorAll(".ambient-slide");
+      if (!slides.length) return;
+      let index = 0;
+      setInterval(() => {
+        slides[index].classList.remove("active");
+        index = (index + 1) % slides.length;
+        slides[index].classList.add("active");
+      }, 8000);
+    })();
   </script>
 </body>
 </html>
