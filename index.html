@@ -1,188 +1,218 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>G2 Apartments</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>G2 Apartments - Premium Living</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- Google Fonts for a premium look -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" />
 
 <style>
 :root {
-  --bg:#020617;
-  --bg-soft:#0b1120;
-  --text:#f9fafb;
-  --muted:#9ca3af;
-  --accent:#c6a96b;
-  --card:rgba(255,255,255,0.05);
-  --border:rgba(255,255,255,0.08);
+  --bg: #0a0a0a; /* Darker background for luxury feel */
+  --bg-soft: #1a1a1a;
+  --text: #f0f0f0;
+  --muted: #aaa;
+  --accent: #bfa14d; /* Metallic gold */
+  --card: rgba(255, 255, 255, 0.05);
+  --border: rgba(255, 255, 255, 0.1);
+  --shadow: rgba(0, 0, 0, 0.3);
 }
 
-*{margin:0;padding:0;box-sizing:border-box;}
-
-body{
-  font-family:'Inter',sans-serif;
-  background:var(--bg);
-  color:var(--text);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* CONTAINER */
-.container{
-  max-width:1100px;
-  margin:auto;
-  padding:0 20px;
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  transition: background 0.3s ease;
 }
 
-/* SECTION SPACING (FIXED) */
-.section{
-  padding:50px 0; /* reduced from 80px */
+/* Container */
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+/* Section spacing */
+.section {
+  padding: 60px 0;
 }
 
 /* HERO */
-.hero{
-  height:85vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
+.hero {
+  height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   background:
-  linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.8)),
-  url('Images/living-room.jpg') center/cover;
+    linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.75)),
+    url('Images/living-room.jpg') center/cover no-repeat;
+  position: relative;
 }
 
-.hero-content{
-  max-width:700px;
+.hero-content {
+  max-width: 700px;
+  padding: 0 20px;
 }
 
-.hero h1{
-  font-size:42px;
-  margin-bottom:12px;
+.hero h1 {
+  font-size: 48px;
+  margin-bottom: 16px;
+  font-weight: 600;
+  color: #f0f0f0;
 }
 
-.hero p{
-  font-size:15px;
-  color:var(--muted);
-  margin-bottom:20px;
+.hero p {
+  font-size: 16px;
+  color: var(--muted);
+  margin-bottom: 24px;
 }
 
-/* BUTTON */
-.btn{
-  padding:10px 18px;
-  border-radius:999px;
-  border:1px solid var(--accent);
-  color:var(--accent);
-  text-decoration:none;
-  font-size:13px;
+.btn {
+  padding: 12px 24px;
+  border-radius: 30px;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: inline-block;
 }
 
-.btn:hover{
-  background:var(--accent);
-  color:#000;
+.btn:hover {
+  background: var(--accent);
+  color: #000;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
-/* HEADINGS */
-.section-title{
-  font-size:22px;
-  margin-bottom:20px;
+/* Headings */
+.section-title {
+  font-size: 24px;
+  margin-bottom: 24px;
+  font-weight: 600;
+  color: #f0f0f0;
+  text-align: center;
 }
 
-/* GRID */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:20px; /* tighter */
+/* Grid layout */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
 }
 
-/* CARD */
-.card{
-  background:var(--card);
-  border-radius:16px;
-  overflow:hidden;
-  border:1px solid var(--border);
+/* Card */
+.card {
+  background: var(--card);
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 12px var(--shadow);
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.card img{
-  width:100%;
-  height:200px;
-  object-fit:cover;
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px var(--shadow);
 }
 
-.card-content{
-  padding:14px;
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
 }
 
-.card h3{
-  font-size:16px;
-  margin-bottom:4px;
+.card img:hover {
+  transform: scale(1.05);
 }
 
-.card p{
-  font-size:13px;
-  color:var(--muted);
-  margin-bottom:10px;
+.card-content {
+  padding: 16px;
 }
 
-/* FEATURES */
-.features{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:15px;
+.card h3 {
+  font-size: 18px;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #f0f0f0;
 }
 
-.feature{
-  background:var(--card);
-  padding:14px;
-  border-radius:12px;
-  font-size:13px;
-  text-align:center;
+.card p {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 12px;
 }
 
-/* TESTIMONIALS */
-.testimonials{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:15px;
+/* Features & Testimonials */
+.features, .testimonials {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
 }
 
-.testimonial{
-  background:var(--card);
-  padding:14px;
-  border-radius:12px;
-  font-size:13px;
+.feature, .testimonial {
+  background: var(--card);
+  padding: 16px;
+  border-radius: 12px;
+  font-size: 14px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  transition: box-shadow 0.3s;
+}
+
+.feature:hover, .testimonial:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.3);
 }
 
 /* CTA */
-.cta{
-  text-align:center;
-  background:var(--bg-soft);
-  padding:40px 20px;
-  border-radius:12px;
+.cta {
+  text-align: center;
+  background: var(--bg-soft);
+  padding: 50px 20px;
+  border-radius: 12px;
+  margin-top: 40px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
 }
 
-.cta h2{
-  font-size:20px;
-  margin-bottom:12px;
+.cta h2 {
+  font-size: 24px;
+  margin-bottom: 16px;
+  font-weight: 600;
+  color: #f0f0f0;
 }
 
-/* FOOTER */
-footer{
-  text-align:center;
-  font-size:12px;
-  color:var(--muted);
-  padding:25px 0;
+footer {
+  text-align: center;
+  font-size: 12px;
+  color: var(--muted);
+  padding: 30px 0;
+  margin-top: 40px;
 }
 
-/* MOBILE */
+/* Responsive adjustments */
 @media(max-width:768px){
-  .grid{grid-template-columns:1fr;}
-  .features{grid-template-columns:1fr;}
-  .testimonials{grid-template-columns:1fr;}
-
-  .hero h1{font-size:28px;}
+  .hero h1 {
+    font-size: 32px;
+  }
+  .section-title {
+    font-size: 20px;
+  }
 }
 </style>
 </head>
-
 <body>
 
 <!-- HERO -->
@@ -197,19 +227,17 @@ footer{
 <!-- APARTMENTS -->
 <div class="section container" id="apartments">
   <h2 class="section-title">Our Apartments</h2>
-
   <div class="grid">
     <div class="card">
-      <img src="Images/living-room.jpg">
+      <img src="Images/living-room.jpg" alt="Living room of G2 Luxe" />
       <div class="card-content">
         <h3>G2 Luxe</h3>
         <p>Victoria Island · 2 Bedroom</p>
         <a href="apt1.html" class="btn">View</a>
       </div>
     </div>
-
     <div class="card">
-      <img src="Images/apt2/living-room.jpg">
+      <img src="Images/apt2/living-room.jpg" alt="Living room of G2 Residence" />
       <div class="card-content">
         <h3>G2 Residence</h3>
         <p>Ikeja · Premium Stay</p>
@@ -219,10 +247,9 @@ footer{
   </div>
 </div>
 
-<!-- FEATURES -->
+<!-- WHY STAY WITH US -->
 <div class="section container">
   <h2 class="section-title">Why Stay With Us</h2>
-
   <div class="features">
     <div class="feature">24/7 Electricity</div>
     <div class="feature">Fast WiFi</div>
@@ -230,10 +257,9 @@ footer{
   </div>
 </div>
 
-<!-- TESTIMONIALS -->
+<!-- GUEST REVIEWS -->
 <div class="section container">
   <h2 class="section-title">Guest Reviews</h2>
-
   <div class="testimonials">
     <div class="testimonial">Clean, stylish and very comfortable.</div>
     <div class="testimonial">Exactly as shown, very premium feel.</div>
@@ -241,7 +267,7 @@ footer{
   </div>
 </div>
 
-<!-- CTA -->
+<!-- CALL TO ACTION -->
 <div class="section container">
   <div class="cta">
     <h2>Ready to Book?</h2>
@@ -249,8 +275,9 @@ footer{
   </div>
 </div>
 
+<!-- FOOTER -->
 <footer>
-© 2026 G2 Apartments
+  © 2026 G2 Apartments
 </footer>
 
 </body>
