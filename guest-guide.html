@@ -1,563 +1,483 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>G2 Luxe - Guest Guide</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>G2 Luxe - Guest Guide</title>
 
-  <!-- Google Fonts: Inter -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-    rel="stylesheet"
-  />
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+  rel="stylesheet"
+/>
 
-  <style>
-    :root {
-      --navy: #07152f;
-      --navy-soft: #0d2144;
-      --navy-light: #1e2b4b;
-      --gold: #d4af37;
-      --gold-soft: #f4d25c;
-      --bg: #f3f4f6;
-      --text: #111827;
-      --muted: #6b7280;
-      --radius-lg: 20px;
-      --radius-md: 16px;
-      --shadow-soft: 0 18px 45px rgba(7, 21, 47, 0.18);
-      --shadow-subtle: 0 10px 24px rgba(7, 21, 47, 0.12);
-    }
+<style>
+  :root {
+    --navy: #07152f;
+    --navy-soft: #0d2144;
+    --gold: #d4af37;
+    --gold-soft: #f4d25c;
+    --bg: #f3f4f6;
+    --text: #111827;
+    --muted: #6b7280;
+    --radius-lg: 20px;
+    --radius-md: 16px;
+    --shadow-soft: 0 18px 45px rgba(7, 21, 47, 0.18);
+  }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
 
-    html, body {
-      height: auto;
-      min-height: 100%;
-    }
+  html, body {
+    height: 100%;
+    font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: #f3f4f6;
+  }
 
-    body {
-      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
-        "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top left, #f7f9ff, #e5e7eb);
-      color: var(--text);
-      min-height: 100vh;
-      padding: 12px;
-    }
+  body {
+    display: flex;
+    justify-content: center;
+    padding: 12px;
+  }
 
-    /* Expanded shell for large screens */
-    .shell {
-      width: 100%;
-      max-width: 1440px; /* Increased for full laptop width */
-      border-radius: 28px;
-      background: #ffffff;
-      box-shadow: var(--shadow-soft);
-      overflow: hidden;
-      display: grid;
-      grid-template-columns: minmax(0, 1.05fr) minmax(0, 2.95fr);
-      min-height: 560px;
-      margin: 0 auto;
-    }
+  /* Full screen container for large screens */
+  .container {
+    width: 100%;
+    max-width: 1600px; /* Max width for large screens */
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    flex-direction: column;
+  }
 
-    /* LEFT SIDE (BRAND & INFO) */
-    .left {
-      background: linear-gradient(155deg, var(--navy), #020819);
-      color: #f9fafb;
-      padding: 24px;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      overflow-y: auto;
-    }
+  /* Main layout: sidebar + content */
+  .main {
+    display: grid;
+    grid-template-columns: 300px 1fr; /* Sidebar & main content */
+    height: 100%;
+    gap: 16px;
+  }
 
-    /* Brand header section */
-    .brand-row {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
+  /* Sidebar styles */
+  .sidebar {
+    background: linear-gradient(155deg, var(--navy), #020819);
+    color: #f9fafb;
+    border-radius: var(--radius-lg);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    padding: 20px;
+  }
 
-    /* Logo styling */
-    .brand-logo {
-      width: 60px;
-      height: 60px;
-      border-radius: 18px;
-      background: radial-gradient(circle at top, #ffffff, #e0e4ff);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 24px;
-      letter-spacing: 0.12em;
-      color: var(--navy);
-      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.45);
-    }
+  /* Brand section */
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .logo {
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle at top, #fff, #e0e4ff);
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 24px;
+    color: var(--navy);
+    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.45);
+  }
+  .brand-info h1 {
+    font-size: 20px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+  .brand-info p {
+    font-size: 14px;
+    margin-top: 4px;
+  }
+  .tagline {
+    font-size: 13px;
+    margin-top: 2px;
+  }
 
-    /* Text info for brand */
-    .brand-text h1 {
-      font-size: 22px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-    }
-    .brand-text p {
-      font-size: 14px;
-      opacity: 0.85;
-      margin-top: 2px;
-    }
-    .tagline {
-      margin-top: 2px;
-      font-size: 13px;
-      opacity: 0.85;
-    }
+  /* Pill row */
+  .pill-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+  }
+  .pill {
+    background: rgba(15, 23, 42, 0.46);
+    border: 1px solid rgba(249, 250, 251, 0.16);
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 11px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .pill-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--gold-soft);
+    border-radius: 999px;
+  }
 
-    /* Pill row for features */
-    .pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 10px;
-    }
-    .pill {
-      font-size: 11px;
-      padding: 6px 12px;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.46);
-      border: 1px solid rgba(249, 250, 251, 0.16);
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .pill-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 999px;
-      background: var(--gold-soft);
-    }
+  /* Info card for stay summary */
+  .stay-card {
+    background: linear-gradient(145deg, var(--navy-soft), #060b1a);
+    border-radius: var(--radius-md);
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.55);
+  }
+  .stay-card h2 {
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+  .grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    opacity: 0.8;
+  }
+  .value {
+    font-weight: 500;
+    margin-top: 2px;
+  }
 
-    /* Info Card container */
-    .left-card {
-      background: linear-gradient(145deg, var(--navy-soft), #060b1a);
-      border-radius: var(--radius-md);
-      padding: 20px;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.55);
-      font-size: 14px;
-      line-height: 1.6;
-      border: 1px solid rgba(212, 175, 55, 0.35);
-      overflow-y: auto;
-    }
-    .left-card h2 {
-      font-size: 16px;
-      margin-bottom: 8px;
-      font-weight: 600;
-    }
+  /* Address section */
+  .address {
+    margin-top: 16px;
+    font-size: 14px;
+  }
 
-    /* Two-column grid for info sections */
-    .grid-2 {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px 20px;
-      font-size: 14px;
-      margin-top: 12px;
-    }
-    .label {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      opacity: 0.8;
-    }
-    .value {
-      font-weight: 500;
-      margin-top: 2px;
-    }
+  /* Divider line */
+  .divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(209, 213, 219, 0.7), transparent);
+    margin: 14px 0;
+  }
 
-    /* Address block */
-    .address {
-      margin-top: 12px;
-      font-size: 14px;
-    }
+  /* Host contact */
+  .host-contact {
+    margin-top: 14px;
+  }
+  .contact-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-top: 6px;
+  }
+  .btn-ghost {
+    padding: 6px 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(249, 250, 251, 0.85);
+    font-size: 11px;
+    text-decoration: none;
+    color: #f9fafb;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .btn-ghost:hover {
+    background: rgba(15, 23, 42, 0.9);
+  }
 
-    /* Divider line */
-    .divider {
-      height: 1px;
-      width: 100%;
-      background: linear-gradient(
-        to right,
-        transparent,
-        rgba(209, 213, 219, 0.7),
-        transparent
-      );
-      margin: 14px 0 10px;
-    }
+  /* Emergency info */
+  .emergency {
+    margin-top: 16px;
+    font-size: 14px;
+    opacity: 0.9;
+  }
+  .emergency span {
+    font-weight: 600;
+    color: var(--gold-soft);
+  }
 
-    /* Contact section styles */
-    .contact-block {
-      margin-top: 8px;
-    }
-    .contact-row {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      align-items: center;
-      margin-top: 4px;
-      font-size: 14px;
-    }
-    .contact-row strong {
-      font-weight: 600;
-    }
+  /* Left footer */
+  .left-footer {
+    margin-top: auto;
+    font-size: 12px;
+    opacity: 0.78;
+  }
 
-    /* Buttons like Call, WhatsApp */
-    .btn-ghost {
-      border-radius: 999px;
-      border: 1px solid rgba(249, 250, 251, 0.85);
-      padding: 6px 12px;
-      font-size: 12px;
-      text-decoration: none;
-      color: #f9fafb;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--navy);
-      transition: background 0.2s;
-    }
-    .btn-ghost:hover {
-      background: rgba(15, 23, 42, 0.9);
-    }
-    span {
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-    }
+  /* MAIN CONTENT AREA */
+  .content-area {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow-y: auto;
+  }
 
-    /* Emergency info */
-    .emergency {
-      margin-top: 10px;
-      font-size: 14px;
-      opacity: 0.9;
-    }
-    .emergency span {
-      font-weight: 600;
-      color: var(--gold-soft);
-    }
+  /* Header in right panel */
+  .header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .header-info {
+    flex: 1;
+  }
+  .page-title {
+    font-size: 24px;
+    font-weight: 600;
+  }
+  .page-sub {
+    font-size: 14px;
+    margin-top: 4px;
+    color: var(--muted);
+  }
 
-    /* Sidebar footer */
-    .left-footer {
-      margin-top: auto;
-      font-size: 12px;
-      opacity: 0.78;
-    }
+  /* Search box */
+  .search-wrap {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 12px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+  }
+  .search-box {
+    position: relative;
+    flex: 1 1 250px;
+  }
+  .search-box input {
+    width: 100%;
+    padding: 10px 40px 10px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(15, 23, 42, 0.1);
+    font-size: 14px;
+    outline: none;
+    background: #fff;
+  }
+  .search-box::before {
+    content: "";
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 14px;
+    height: 14px;
+    border-radius: 999px;
+    border: 2px solid rgba(31, 41, 55, 0.7);
+    box-shadow: 4px 4px 0 0 rgba(31, 41, 55, 0.7) inset;
+    opacity: 0.7;
+  }
 
-    /* --- RIGHT SIDE (Content & Map) --- */
-    .right {
-      padding: 24px;
-      background: var(--bg);
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      overflow-y: auto;
-    }
+  /* Map category tabs */
+  .map-tabs {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 8px;
+  }
+  .map-pill {
+    font-size: 12px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(15, 23, 42, 0.12);
+    background: #f9fafb;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: 0.2s ease;
+  }
+  .map-pill.active {
+    background: var(--navy);
+    color: #f9fafb;
+  }
+  .map-pill:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(15, 23, 42, 0.12);
+  }
+  .map-pill-indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    background: rgba(15, 23, 42, 0.2);
+  }
 
-    /* Header for right content */
-    .right-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-    .page-title {
-      font-size: 22px;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-    }
-    .page-sub {
-      font-size: 14px;
-      color: var(--muted);
-      margin-top: 4px;
-    }
+  /* Recommendations list */
+  .recommendations {
+    display: grid;
+    gap: 14px;
+    margin-top: 12px;
+  }
+  .rec-card {
+    border-radius: 14px;
+    border: 1px solid rgba(15, 23, 42, 0.06);
+    background: #f9fafb;
+    padding: 14px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 12px;
+  }
+  .rec-details {
+    display: flex;
+    flex-direction: column;
+  }
+  .rec-name {
+    font-weight: 600;
+    font-size: 14px;
+  }
+  .rec-meta {
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .map-link {
+    font-size: 12px;
+    text-decoration: none;
+    color: var(--navy);
+  }
+  .map-link:hover {
+    text-decoration: underline;
+  }
 
-    /* Search bar styles */
-    .search-wrap {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-    .search-box {
-      position: relative;
-      flex: 1 1 250px;
-      max-width: 350px;
-    }
-    .search-box input {
-      width: 100%;
-      padding: 10px 40px 10px 14px;
-      border-radius: 999px;
-      border: 1px solid rgba(15, 23, 42, 0.1);
-      font-size: 14px;
-      outline: none;
-      background: #fff;
-    }
-    .search-box::before {
-      content: "";
-      position: absolute;
-      left: 14px;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 14px;
-      height: 14px;
-      border-radius: 999px;
-      border: 2px solid rgba(31, 41, 55, 0.7);
-      box-shadow: 4px 4px 0 0 rgba(31, 41, 55, 0.7) inset;
-      opacity: 0.7;
-    }
+  /* Map iframe */
+  #mapFrame {
+    width: 100%;
+    height: 350px;
+    border-radius: 16px;
+    margin-top: 12px;
+    border: none;
+  }
 
-    /* Category pills */
-    .map-type-row {
-      display: flex;
-      flex-wrap: nowrap;
-      gap: 8px;
-      margin-top: 10px;
-    }
-    .map-pill {
-      font-size: 12px;
-      padding: 8px 14px;
-      border-radius: 999px;
-      border: 1px solid rgba(15, 23, 42, 0.12);
-      background: #f9fafb;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      transition: 0.2s ease;
-    }
-    .map-pill-indicator {
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.2);
-    }
-    .map-pill.active {
-      background: var(--navy);
-      color: #f9fafb;
-      border-color: transparent;
-    }
-    .map-pill:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 6px 16px rgba(15, 23, 42, 0.12);
-    }
+  /* Guest and feedback */
+  .guest-section {
+    margin-top: 16px;
+  }
+  .guest-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .guest-title {
+    font-size: 18px;
+    font-weight: 600;
+  }
+  .guest-actions {
+    display: flex;
+    gap: 8px;
+  }
+  .btn-ghost {
+    padding: 6px 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(249, 250, 251, 0.85);
+    font-size: 11px;
+    text-decoration: none;
+    color: #f9fafb;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .btn-ghost:hover {
+    background: rgba(15, 23, 42, 0.9);
+  }
 
-    /* Recommendations list */
-    .rec-list {
-      display: grid;
+  /* Feedback form */
+  .feedback-form {
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .feedback-group {
+    display: flex;
+    flex-direction: column;
+  }
+  .feedback-group label {
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+  .feedback-group input,
+  .feedback-group textarea,
+  .feedback-group select {
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid rgba(15, 23, 42, 0.14);
+    font-size: 14px;
+    outline: none;
+  }
+  .feedback-group textarea {
+    min-height: 100px;
+    resize: vertical;
+  }
+  .btn-submit {
+    align-self: flex-start;
+    padding: 10px 20px;
+    border-radius: 999px;
+    border: none;
+    background: linear-gradient(135deg, var(--navy-soft), var(--navy));
+    color: #f9fafb;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  /* Footer */
+  .footer {
+    margin-top: 16px;
+    padding: 12px 0;
+    border-top: 1px solid rgba(209, 213, 219, 0.7);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    font-size: 11px;
+    color: var(--muted);
+  }
+
+  /* Responsive adjustments */
+  @media(max-width: 1024px) {
+    .main {
       grid-template-columns: 1fr;
-      gap: 12px;
-      margin-top: 12px;
     }
-    /* Recommendation card styles */
-    .rec-card {
-      border-radius: 14px;
-      border: 1px solid rgba(15, 23, 42, 0.06);
-      background: #f9fafb;
-      padding: 14px;
-      font-size: 14px;
-      display: grid;
-      grid-template-columns: minmax(0, 1.5fr) 1fr;
-      gap: 8px;
-      align-items: center;
+    .container {
+      max-width: 100%;
+      height: auto;
     }
-    .rec-name {
-      font-weight: 600;
-      font-size: 14px;
-    }
-    .rec-meta {
-      font-size: 12px;
-      color: var(--muted);
-    }
-    .rec-meta span {
-      margin-right: 8px;
-    }
-    .rec-action {
-      text-align: right;
-    }
-    .btn-small-link {
-      font-size: 12px;
-      text-decoration: none;
-      color: var(--navy-soft);
-      font-weight: 500;
-    }
-
-    /* Map iframe */
-    .map-frame {
-      width: 100%;
-      height: 350px;
-      border-radius: 16px;
-      border: none;
-      margin-top: 12px;
-    }
-    .map-note {
-      font-size: 12px;
-      color: var(--muted);
-      margin-top: 8px;
-    }
-
-    /* Ride-hailing buttons */
-    .ride-brands {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 12px;
-    }
-    .ride-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 14px;
-      border-radius: 999px;
-      font-size: 13px;
-      font-weight: 500;
-      background: #f9fafb;
-      border: 1px solid rgba(15, 23, 42, 0.12);
-      text-decoration: none;
-      color: #111827;
-      transition: 0.2s ease;
-    }
-    .ride-badge:hover {
-      background: #eef2ff;
-      border-color: rgba(15, 23, 42, 0.18);
-    }
-    .ride-mark {
-      width: 14px;
-      height: 14px;
-      border-radius: 4px;
-    }
-    .ride-mark.uber {
-      background: #000;
-    }
-    .ride-mark.bolt {
-      background: #34d186;
-    }
-    .ride-mark.indrive {
-      background: linear-gradient(135deg, #04c75a, #1c7ed6);
-    }
-
-    /* Feedback form styles */
-    .feedback-form {
-      display: grid;
-      gap: 12px;
-      margin-top: 12px;
-    }
-    .feedback-row {
-      display: grid;
-      gap: 6px;
-    }
-    .feedback-row label {
-      font-size: 13px;
-      font-weight: 500;
-    }
-    .feedback-row input,
-    .feedback-row textarea,
-    .feedback-row select {
-      border-radius: 10px;
-      border: 1px solid rgba(15, 23, 42, 0.14);
-      padding: 10px;
-      font-size: 14px;
-      outline: none;
-      background: #fff;
-    }
-    .feedback-row textarea {
-      min-height: 100px;
-      resize: vertical;
-    }
-
-    /* Primary button for submit */
-    .btn-primary {
-      border: none;
-      border-radius: 999px;
-      padding: 10px 20px;
-      font-size: 14px;
-      font-weight: 500;
-      cursor: pointer;
-      background: linear-gradient(135deg, var(--navy-soft), var(--navy));
-      color: #f9fafb;
-      justify-self: flex-start;
-    }
-
-    /* Footer styles */
-    .global-footer {
-      margin-top: 20px;
-      font-size: 12px;
-      color: var(--muted);
-      padding-top: 12px;
-      border-top: 1px solid rgba(209, 213, 219, 0.7);
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    /* Responsive adjustments for smaller screens */
-    @media(max-width: 1024px) {
-      .shell {
-        grid-template-columns: 1fr;
-        border-radius: 20px;
-      }
-    }
-    @media(max-width: 720px) {
-      body {
-        padding: 8px;
-      }
-      .shell {
-        border-radius: 0;
-        max-width: 100%;
-        min-height: 100vh;
-      }
-      .left {
-        padding: 16px;
-      }
-      .right {
-        padding: 16px;
-      }
-      .ambient-media {
-        height: 220px;
-        aspect-ratio: auto;
-        border-radius: 8px;
-      }
-      /* Smaller font sizes for mobile */
-      .page-title {
-        font-size: 18px;
-      }
-    }
-  </style>
+  }
+</style>
 </head>
 <body>
-  <div class="shell">
-    <!-- LEFT SIDE -->
-    <section class="left">
-      <header class="brand-row">
-        <div class="brand-logo">G2</div>
-        <div class="brand-text">
+<div class="container">
+  <div class="main">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="logo">G2</div>
+        <div class="brand-info">
           <h1>G2 LUXE</h1>
           <p>Two-bedroom serviced apartment</p>
           <p class="tagline">6B Ogalade Close, Victoria Island, Lagos</p>
         </div>
-      </header>
-
-      <!-- Features pills -->
-      <div class="pill-row">
-        <span class="pill"><span class="pill-dot"></span> Designed for 1–4 adults for comfort</span>
-        <span class="pill"><span class="pill-dot"></span> Spacious 2-bedroom luxury finish</span>
-        <span class="pill"><span class="pill-dot"></span> High-speed Wi-Fi</span>
-        <span class="pill"><span class="pill-dot"></span> 3 Smart Tvs</span>
-        <span class="pill"><span class="pill-dot"></span> 3 Rest rooms </span>
-        <span class="pill"><span class="pill-dot"></span> Secured Smart Lock </span>
       </div>
-
-      <!-- Stay summary -->
-      <article class="left-card">
+      <!-- Features -->
+      <div class="pill-row">
+        <div class="pill"><span class="pill-dot"></span>Designed for 1–4 adults for comfort</div>
+        <div class="pill"><span class="pill-dot"></span>Spacious 2-bedroom luxury finish</div>
+        <div class="pill"><span class="pill-dot"></span>High-speed Wi-Fi</div>
+        <div class="pill"><span class="pill-dot"></span>3 Smart Tvs</div>
+        <div class="pill"><span class="pill-dot"></span>3 Rest rooms</div>
+        <div class="pill"><span class="pill-dot"></span>Secured Smart Lock</div>
+      </div>
+      <!-- Stay Summary -->
+      <div class="stay-card">
         <h2>Stay summary</h2>
         <div class="grid-2">
           <div>
@@ -585,333 +505,219 @@
             <div class="value">1–4 adults for comfort</div>
           </div>
         </div>
-
         <div class="address">
-          <span class="label">Property address</span><br />
-          6B Ogalade Close, Victoria Island, Lagos.
+          <div class="label">Property address</div>
+          <div>6B Ogalade Close, Victoria Island, Lagos.</div>
         </div>
-
         <div class="divider"></div>
-
-        <!-- Host contact -->
-        <div class="contact-block">
+        <!-- Host contact info -->
+        <div class="host-contact">
           <div class="label">Your host</div>
           <div class="contact-row">
             <strong>Queen</strong>
-            <div class="contact-actions">
-              <a class="btn-ghost" href="tel:08166576005">
-                <span>Call</span>
-              </a>
-              <a
-                class="btn-ghost"
-                href="https://wa.me/2348166576005?text=Hi%20Queen,%20I'm%20a%20guest%20at%20G2%20Luxe."
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <span>WhatsApp</span>
-              </a>
+            <div class="host-actions">
+              <a class="btn-ghost" href="tel:08166576005">Call</a>
+              <a class="btn-ghost" href="https://wa.me/2348166576005?text=Hi%20Queen,%20I'm%20a%20guest%20at%20G2%20Luxe." target="_blank" rel="noopener noreferrer">WhatsApp</a>
             </div>
           </div>
         </div>
-
-        <!-- Security & location info -->
         <div class="divider"></div>
-        <p style="font-size:14px; opacity:0.9; margin-top:8px; line-height:1.6;">
-          G2 Luxe is situated in one of the best locations in Victoria Island, at the
-          heart of Lagos’ business district and vibrant high-end nightlife.
+        <p style="font-size:14px; opacity:0.9;">
+          G2 Luxe is situated in one of the best locations in Victoria Island, at the heart of Lagos’ business district and vibrant high-end nightlife.
         </p>
-        <p class="emergency">
-          <span>Security:</span> the building has on-site security 24/7 and a
-          reputable hospital located next door for additional peace of mind.
-        </p>
-      </article>
+        <!-- Security info -->
+        <div class="emergency">
+          <span>Security:</span> the building has on-site security 24/7 and a reputable hospital located next door.
+        </div>
+      </div>
 
       <!-- Ambient images slideshow -->
-      <article class="panel ambient-panel">
-        <div class="ambient-media">
-          <div class="ambient-slide active" style="background-image:url('Images/living-room2.jpg')"></div>
-          <div class="ambient-slide" style="background-image:url('Images/living-room.jpg')"></div>
-          <div class="ambient-slide" style="background-image:url('Images/kitchen.jpg')"></div>
-          <div class="ambient-slide" style="background-image:url('Images/bedroom1.jpg')"></div>
-          <div class="ambient-slide" style="background-image:url('Images/master-bedroom.jpg')"></div>
-          <div class="ambient-label">Inside G2 Luxe</div>
+      <div style="margin-top:20px;">
+        <div style="position:relative; width:100%; aspect-ratio: 16/10; border-radius:8px; overflow:hidden;">
+          <div class="ambient-slide active" style="background-image:url('Images/living-room2.jpg');"></div>
+          <div class="ambient-slide" style="background-image:url('Images/living-room.jpg');"></div>
+          <div class="ambient-slide" style="background-image:url('Images/kitchen.jpg');"></div>
+          <div class="ambient-slide" style="background-image:url('Images/bedroom1.jpg');"></div>
+          <div class="ambient-slide" style="background-image:url('Images/master-bedroom.jpg');"></div>
         </div>
-      </article>
+        <div style="position:absolute; bottom:8px; left:16px; background:rgba(7,21,47,0.55); padding:4px 12px; border-radius:999px; font-size:11px; color:#f9fafb;">Inside G2 Luxe</div>
+      </div>
 
       <!-- Left footer -->
-      <footer class="left-footer">
+      <div class="left-footer" style="margin-top:auto;">
         A calm, secure and private base in the heart of Victoria Island.
-      </footer>
-    </section>
+      </div>
+    </aside>
 
-    <!-- RIGHT SIDE: Content & Map -->
-    <section class="right">
-      <header class="right-header">
-        <div>
+    <!-- Main content area -->
+    <section class="content-area">
+      <!-- Header with title and search -->
+      <div class="header">
+        <div class="header-info">
           <div class="page-title">G2 Luxe - Guest Guide</div>
-          <div class="page-sub">
-            Everything you need for your stay at G2 Luxe.
-          </div>
+          <div class="page-sub">Everything you need for your stay at G2 Luxe.</div>
         </div>
-        <!-- Search -->
         <div class="search-wrap">
           <div class="search-box">
-            <input
-              id="searchInput"
-              type="text"
-              placeholder="Search: wifi, rules, check-in, dining..."
-            />
+            <input type="text" id="searchInput" placeholder="Search: wifi, rules, check-in, dining..." />
           </div>
-          <span class="badge-soft">Tap a section or start typing</span>
         </div>
-      </header>
+      </div>
 
-      <!-- Tabs for nearby categories -->
-      <nav class="tab-row" id="mainTabs"></nav>
+      <!-- Main panels: welcome + nearby recommendations -->
+      <div style="display:flex; flex-direction:column; gap:20px; margin-top:20px; flex:1; overflow-y:auto;">
+        <!-- Welcome & overview -->
+        <div style="background:#fff; border-radius:8px; padding:20px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+          <h2 style="font-size:20px; margin-bottom:12px;">Welcome & overview</h2>
+          <div id="section-welcome">
+            <p>
+              Welcome to <strong>G2 Luxe</strong>, a contemporary two-bedroom apartment thoughtfully set up for a relaxed, premium stay in the heart of Victoria Island.
+            </p>
+            <ul style="margin-top:10px; margin-left:20px; list-style-type: disc;">
+              <li>Self check-in with a smart lock for flexible arrival.</li>
+              <li>Ideal for 1–4 adults looking for comfort, privacy and security.</li>
+              <li>Fast Wi-Fi, Diesel Generator backup for essentials and a calm residential feel.</li>
+            </ul>
+            <div style="margin-top:12px;">
+              <div><strong>Perfect for</strong></div>
+              <p>Business trips, couples’ stays, and short city breaks.</p>
+            </div>
+            <div style="margin-top:12px;">
+              <div><strong>Neighbourhood</strong></div>
+              <p>Central, secure and close to dining, lounges and the waterfront.</p>
+            </div>
+          </div>
+        </div>
 
-      <!-- Main content + map -->
-      <div class="cards-area">
-        <!-- Left content -->
-        <article class="panel">
-          <header class="panel-header">
-            <div class="panel-title">
-              <span class="panel-title-mark"></span>
-              <span id="panelTitle">Welcome & Overview</span>
-            </div>
-            <span class="pill-small" id="panelTag">Start here</span>
-          </header>
-          <div class="panel-body" id="panelBody"></div>
-          <footer class="panel-footer">
-            <span id="panelUpdated">Last updated: —</span>
-            <span>G2 Luxe · Victoria Island</span>
-          </footer>
-        </article>
-        <!-- Map & recommendations -->
-        <article class="panel">
-          <header class="panel-header">
-            <div class="panel-title">
-              <span class="panel-title-mark"></span>
-              <span>Nearby recommendations</span>
-            </div>
-            <span class="pill-small">Curated around Victoria Island</span>
-          </header>
+        <!-- Nearby recommendations -->
+        <div style="background:#fff; border-radius:8px; padding:20px; box-shadow:0 4px 12px rgba(0,0,0,0.1); flex:1;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+            <h2 style="font-size:20px;">Nearby recommendations</h2>
+            <div style="font-size:12px; background:#fdf6e3; padding:4px 8px; border-radius:999px; color:#92400e;">Curated around Victoria Island</div>
+          </div>
           <!-- Category tabs -->
-          <div class="map-type-row" id="mapTabs">
-            <button class="map-pill active" data-type="food">
-              <span class="map-pill-indicator"></span> Food & dining
-            </button>
-            <button class="map-pill" data-type="bars">
-              <span class="map-pill-indicator"></span> Bars & lounges
-            </button>
-            <button class="map-pill" data-type="activities">
-              <span class="map-pill-indicator"></span> Activities & sightseeing
-            </button>
-            <button class="map-pill" data-type="travel">
-              <span class="map-pill-indicator"></span> Travel agencies
-            </button>
-            <button class="map-pill" data-type="workspace">
-              <span class="map-pill-indicator"></span> Workspaces
-            </button>
-            <button class="map-pill" data-type="cinema">
-              <span class="map-pill-indicator"></span> Cinemas
-            </button>
-            <button class="map-pill" data-type="shopping">
-              <span class="map-pill-indicator"></span> Shopping Malls
-            </button>
-            <button class="map-pill" data-type="clubbing">
-              <span class="map-pill-indicator"></span> NightLife & Clubbing
-            </button>
+          <div class="map-tabs" style="margin-bottom:12px;">
+            <button class="map-pill active" data-type="food"><span class="map-pill-indicator"></span> Food & dining</button>
+            <button class="map-pill" data-type="bars"><span class="map-pill-indicator"></span> Bars & lounges</button>
+            <button class="map-pill" data-type="activities"><span class="map-pill-indicator"></span> Activities & sightseeing</button>
+            <button class="map-pill" data-type="travel"><span class="map-pill-indicator"></span> Travel agencies</button>
+            <button class="map-pill" data-type="workspace"><span class="map-pill-indicator"></span> Workspaces</button>
+            <button class="map-pill" data-type="cinema"><span class="map-pill-indicator"></span> Cinemas</button>
+            <button class="map-pill" data-type="shopping"><span class="map-pill-indicator"></span> Shopping Malls</button>
+            <button class="map-pill" data-type="clubbing"><span class="map-pill-indicator"></span> NightLife & Clubbing</button>
           </div>
           <!-- Recommendations list -->
-          <div class="rec-list" id="recList"></div>
-          <!-- Embedded Google Map -->
-          <iframe
-            id="mapFrame"
-            class="map-frame"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            src=""
-          ></iframe>
-          <p class="map-note">
-            Times and ratings are indicative only. Use “Open in Maps” for
-            live directions from your current location.
-          </p>
-        </article>
+          <div class="recommendations" id="recList"></div>
+          <!-- Maps iframe -->
+          <iframe id="mapFrame" src="" loading="lazy"></iframe>
+          <div style="margin-top:8px; font-size:11px; color:#6b7280;">Times and ratings are indicative only. Use “Open in Maps” for live directions from your current location.</div>
+        </div>
       </div>
 
       <!-- Footer -->
-      <footer class="global-footer">
-        <span>© <span id="yearSpan"></span> G2 Luxe · Victoria Island, Lagos</span>
-        <span>Digital guest guide · Private use only</span>
-      </footer>
+      <div class="footer" style="margin-top:20px;">
+        <div>© <span id="yearSpan"></span> G2 Luxe · Victoria Island, Lagos</div>
+        <div>Digital guest guide · Private use only</div>
+      </div>
     </section>
   </div>
+</div>
 
-  <script>
-    /* --- Data and logic (unchanged, just ensure scripts support full width) --- */
-    const SECTIONS = [
-      // ... your sections data ...
-    ];
+<script>
+  // Sample data (you can replace with your actual data)
+  const SECTIONS = [
+    {
+      id: "welcome",
+      title: "Welcome & overview",
+      tag: "Start here",
+      updated: "2025-10-20",
+      html: "",
+    },
+    // Add other sections if needed
+  ];
 
-    const RECOMMENDATIONS = {
-      // ... your recommendations data ...
-    };
+  const RECOMMENDATIONS = {
+    food: [
+      {
+        name: "Z Kitchen",
+        type: "Restaurant",
+        eta: "3 min drive",
+        rating: "4.4",
+        price: "₦₦",
+        maps: "https://www.google.com/maps/search/?api=1&query=Z+Kitchen+Victoria+Island+Lagos",
+      },
+      // Other recommendations...
+    ],
+    bars: [
+      // ...
+    ],
+    // Other categories...
+  };
 
-    const MAP_URLS = {
-      // ... your map URLs ...
-    };
+  const MAP_URLS = {
+    food: "https://www.google.com/maps?q=restaurants+near+Victoria+Island+Lagos&output=embed",
+    bars: "https://www.google.com/maps?q=bars+and+lounges+near+Victoria+Island+Lagos&output=embed",
+    // ...
+  };
 
-    const mainTabs = document.getElementById("mainTabs");
-    const panelTitle = document.getElementById("panelTitle");
-    const panelTag = document.getElementById("panelTag");
-    const panelBody = document.getElementById("panelBody");
-    const panelUpdated = document.getElementById("panelUpdated");
-    const searchInput = document.getElementById("searchInput");
-    const mapTabs = document.getElementById("mapTabs");
-    const mapFrame = document.getElementById("mapFrame");
-    const recList = document.getElementById("recList");
-    const yearSpan = document.getElementById("yearSpan");
+  // Render tabs and set default
+  const mainTabsContainer = document.createElement('div');
+  document.querySelector('.header').appendChild(mainTabsContainer);
 
-    let activeSectionId = "welcome";
+  // Initialize page
+  document.getElementById("yearSpan").textContent = new Date().getFullYear();
 
-    function renderMainTabs() {
-      mainTabs.innerHTML = "";
-      SECTIONS.forEach((section) => {
-        const btn = document.createElement("button");
-        btn.className =
-          "tab-btn" + (section.id === activeSectionId ? " active" : "");
-        btn.dataset.id = section.id;
-        btn.innerHTML = `
-          <span class="tab-badge"></span>
-          <span>${section.title}</span>
-        `;
-        btn.onclick = () => {
-          activeSectionId = section.id;
-          searchInput.value = "";
-          renderMainTabs();
-          renderActiveSection();
-        };
-        mainTabs.appendChild(btn);
-      });
-    }
+  // Set default map
+  document.getElementById("mapFrame").src = MAP_URLS.food;
 
-    function renderActiveSection() {
-      const query = searchInput.value.trim().toLowerCase();
-      let section = SECTIONS.find((s) => s.id === activeSectionId);
-      if (!section) section = SECTIONS[0];
-
-      if (query) {
-        const filtered = SECTIONS.filter((s) => {
-          const text =
-            (s.title + " " + s.tag + " " + s.keywords + " " + s.html)
-              .replace(/<[^>]+>/g, " ")
-              .toLowerCase();
-          return text.includes(query);
-        });
-        if (filtered.length) section = filtered[0];
-      }
-
-      panelTitle.textContent = section.title;
-      panelTag.textContent = section.tag;
-      panelBody.innerHTML = section.html;
-      panelUpdated.textContent = "Last updated: " + section.updated;
-
-      attachCopyButtons();
-      attachFeedbackHandler();
-    }
-
-    function attachCopyButtons() {
-      document.querySelectorAll(".btn-copy").forEach((btn) => {
-        btn.onclick = () => {
-          const id = btn.dataset.copyTarget;
-          const el = document.getElementById(id);
-          if (!el) return;
-          const text = el.textContent.trim();
-          navigator.clipboard
-            .writeText(text)
-            .then(() => {
-              const original = btn.textContent;
-              btn.textContent = "Copied";
-              setTimeout(() => (btn.textContent = "Copy"), 1200);
-            })
-            .catch(() => alert("Copy failed. Please copy manually: " + text));
-        };
-      });
-    }
-
-    function attachFeedbackHandler() {
-      const form = document.getElementById("feedbackForm");
-      if (!form) return;
-      form.onsubmit = () => {
-        alert(
-          "Thank you. Your email app will open next so you can send your feedback to G2 Luxe."
-        );
-        return false; // prevent form submit
-      };
-    }
-
-    searchInput.addEventListener("input", () => {
-      renderActiveSection();
-    });
-
-    function renderRecList(type) {
-      const items = RECOMMENDATIONS[type] || [];
-      recList.innerHTML = "";
-      if (!items.length) {
-        recList.innerHTML =
-          '<div style="font-size:12px;color:#6b7280;">No recommendations added yet for this category.</div>';
-        return;
-      }
-      items.forEach((item) => {
-        const card = document.createElement("div");
-        card.className = "rec-card";
-        card.innerHTML = `
-          <div>
-            <div class="rec-name">${item.name}</div>
-            <div class="rec-meta">${item.type}</div>
-          </div>
-          <div class="rec-action">
-            <div class="rec-meta">
-              <span>${item.eta}</span>
-              <span>Rating: ${item.rating}</span>
-              <span>${item.price}</span>
-            </div>
-            <a class="btn-small-link" href="${item.maps}" target="_blank" rel="noopener noreferrer">Open in Maps</a>
-          </div>
-        `;
-        recList.appendChild(card);
-      });
-    }
-
-    function setMapType(type) {
-      document.querySelectorAll(".map-pill").forEach((pill) => {
-        pill.classList.toggle("active", pill.dataset.type === type);
-      });
-      mapFrame.src = MAP_URLS[type] || MAP_URLS.food;
+  // Event handlers for category tabs
+  document.querySelectorAll('.map-pill').forEach(btn => {
+    btn.onclick = () => {
+      document.querySelectorAll('.map-pill').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const type = btn.dataset.type;
+      document.getElementById("mapFrame").src = MAP_URLS[type] || MAP_URLS.food;
       renderRecList(type);
+    };
+  });
+
+  function renderRecList(type) {
+    const list = document.getElementById('recList');
+    list.innerHTML = '';
+    const items = RECOMMENDATIONS[type] || [];
+    if (!items.length) {
+      list.innerHTML = "<div style='color:#6b7280;'>No recommendations added yet for this category.</div>";
+      return;
     }
-
-    document.querySelectorAll(".map-pill").forEach((pill) => {
-      pill.onclick = () => setMapType(pill.dataset.type);
+    items.forEach((item) => {
+      const rec = document.createElement('div');
+      rec.className = 'rec-card';
+      rec.innerHTML = `
+        <div class="rec-details">
+          <div class="rec-name">${item.name}</div>
+          <div class="rec-meta">${item.type}</div>
+        </div>
+        <div style="text-align:right;">
+          <div class="rec-meta">Rating: ${item.rating}</div>
+          <a class="map-link" href="${item.maps}" target="_blank">Open in Maps</a>
+        </div>
+      `;
+      list.appendChild(rec);
     });
+  }
 
-    /* Initialize */
-    renderMainTabs();
-    renderActiveSection();
-    setMapType("food");
-    yearSpan.textContent = new Date().getFullYear();
+  // Initialize first recommendation list
+  renderRecList('food');
 
-    // Slideshow for ambient images
-    (function () {
-      const slides = document.querySelectorAll(".ambient-slide");
-      if (!slides.length) return;
-      let index = 0;
-      setInterval(() => {
-        slides[index].classList.remove("active");
-        index = (index + 1) % slides.length;
-        slides[index].classList.add("active");
-      }, 8000);
-    })();
-  </script>
+  // Ambient slideshow
+  const slides = document.querySelectorAll('.ambient-slide');
+  if (slides.length) {
+    let currentSlide = 0;
+    setInterval(() => {
+      slides.forEach((s, i) => s.classList.toggle('active', i === currentSlide));
+      currentSlide = (currentSlide + 1) % slides.length;
+    }, 8000);
+  }
+</script>
 </body>
 </html>
