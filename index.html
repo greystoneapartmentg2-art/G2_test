@@ -5,104 +5,164 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>G2 Apartments</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
   <style>
+    :root {
+      --bg: #0b1120;
+      --card: rgba(255, 255, 255, 0.05);
+      --text: #f9fafb;
+      --muted: #9ca3af;
+      --accent: #c6a96b;
+      --border: rgba(255,255,255,0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: 'Inter', sans-serif;
-      background: #f3f4f6;
       margin: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
+      font-family: 'Inter', sans-serif;
+      background: radial-gradient(circle at top, #111827, #020617);
+      color: var(--text);
     }
 
     .container {
-      max-width: 1000px;
-      width: 90%;
+      max-width: 1100px;
+      margin: auto;
+      padding: 60px 20px;
       text-align: center;
     }
 
     h1 {
-      margin-bottom: 30px;
-      font-size: 32px;
+      font-size: 40px;
+      margin-bottom: 10px;
+      letter-spacing: -0.5px;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      margin-bottom: 50px;
+      font-size: 16px;
     }
 
     .cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
     }
 
     .card {
-      background: white;
-      border-radius: 16px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
       overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-      transition: 0.2s;
+      backdrop-filter: blur(12px);
+      transition: all 0.3s ease;
+      text-align: left;
     }
 
     .card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-8px);
+      border-color: rgba(198,169,107,0.4);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
     }
 
     .card img {
       width: 100%;
-      height: 180px;
+      height: 200px;
       object-fit: cover;
     }
 
     .card-content {
-      padding: 16px;
+      padding: 20px;
     }
 
     .card h2 {
       margin: 0;
       font-size: 20px;
+      font-weight: 600;
     }
 
-    .card p {
-      font-size: 14px;
-      color: #6b7280;
-      margin: 8px 0 12px;
+    .location {
+      font-size: 13px;
+      color: var(--muted);
+      margin: 6px 0 14px;
     }
 
     .btn {
       display: inline-block;
-      padding: 8px 14px;
+      padding: 10px 16px;
       border-radius: 999px;
-      background: #07152f;
-      color: white;
+      background: transparent;
+      border: 1px solid var(--accent);
+      color: var(--accent);
       text-decoration: none;
       font-size: 13px;
+      transition: all 0.25s ease;
     }
+
+    .btn:hover {
+      background: var(--accent);
+      color: #000;
+    }
+
+    .brand {
+      font-size: 14px;
+      color: var(--accent);
+      margin-bottom: 6px;
+      letter-spacing: 2px;
+    }
+
+    footer {
+      margin-top: 60px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
   </style>
 </head>
 
 <body>
+
   <div class="container">
-    <h1>Welcome to G2 Apartments</h1>
+
+    <div class="brand">G2 COLLECTION</div>
+    <h1>Luxury Short Stay Apartments</h1>
+    <div class="subtitle">
+      Curated spaces designed for comfort, elegance, and premium living.
+    </div>
 
     <div class="cards">
+
+      <!-- Apartment 1 -->
       <div class="card">
         <img src="Images/living-room.jpg" />
         <div class="card-content">
           <h2>G2 Luxe</h2>
-          <p>Victoria Island · 2 Bedroom Luxury</p>
+          <div class="location">Victoria Island · 2 Bedroom</div>
           <a href="apt1.html" class="btn">View Apartment</a>
         </div>
       </div>
 
+      <!-- Apartment 2 -->
       <div class="card">
         <img src="Images/apt2/living-room.jpg" />
         <div class="card-content">
           <h2>G2 Residence</h2>
-          <p>Ikeja · Cozy Premium Stay</p>
+          <div class="location">Ikeja · Premium Stay</div>
           <a href="apt2.html" class="btn">View Apartment</a>
         </div>
       </div>
+
     </div>
+
+    <footer>
+      © 2026 G2 Apartments · All Rights Reserved
+    </footer>
+
   </div>
+
 </body>
 </html>
