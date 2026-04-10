@@ -1,265 +1,427 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>G2 Apartments - Guest Guide</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>G2 Luxe - Guest Guide</title>
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+  rel="stylesheet"
+/>
 <style>
+  :root {
+    --navy: #07152f;
+    --navy-soft: #0d2144;
+    --navy-light: #1e2b4b;
+    --gold: #d4af37;
+    --gold-soft: #f4d25c;
+    --bg: #0a0a0a; /* Changed background for dark theme */
+    --text: #f0f0f0; 
+    --muted: #aaa;
+    --radius-lg: 16px;
+    --shadow-soft: 0 4px 20px rgba(0,0,0,0.3);
+    --shadow-subtle: 0 10px 24px rgba(7, 21, 47, 0.12);
+  }
 
-:root {
-  --bg: #020617;
-  --bg-secondary: #0b1120;
-  --card: rgba(255,255,255,0.05);
-  --text: #f9fafb;
-  --muted: #9ca3af;
-  --gold: #bfa14d;
-  --gold-hover: #a78c50;
-}
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
 
-/* GLOBAL */
-body {
-  margin: 0;
-  font-family: 'Inter', sans-serif;
-  background: linear-gradient(135deg, var(--bg), var(--bg-secondary));
-  color: var(--text);
-}
+  html, body {
+    height: auto;
+    min-height: 100%;
+  }
 
-/* HEADER */
-.header {
-  padding: 20px 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+  body {
+    font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
+      "Segoe UI", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.6;
+    padding: 12px;
+    overflow-y: auto;
+  }
 
-.header h1 {
-  font-size: 20px;
-  letter-spacing: 2px;
-}
-
-.header a {
-  text-decoration: none;
-  color: var(--gold);
-}
-
-/* HERO */
-.hero {
-  padding: 60px 20px 40px;
-  text-align: center;
-}
-
-.hero h2 {
-  font-size: 36px;
-  margin-bottom: 10px;
-}
-
-.hero p {
-  color: var(--muted);
-}
-
-/* GRID */
-.container {
-  max-width: 1200px;
-  margin: auto;
-  padding: 20px;
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 20px;
-}
-
-/* SIDEBAR */
-.sidebar {
-  background: var(--card);
-  padding: 20px;
-  border-radius: 14px;
-}
-
-.sidebar h3 {
-  margin-top: 0;
-}
-
-.badges {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.badge {
-  background: rgba(255,255,255,0.07);
-  padding: 8px 12px;
-  border-radius: 20px;
-  font-size: 13px;
-}
-
-/* MAIN */
-.main {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-/* CARD */
-.card {
-  background: var(--card);
-  padding: 20px;
-  border-radius: 14px;
-}
-
-.card h3 {
-  margin-top: 0;
-}
-
-.card p {
-  color: var(--muted);
-  line-height: 1.6;
-}
-
-/* GRID INSIDE */
-.grid-2 {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 15px;
-}
-
-/* BUTTON */
-.btn {
-  display: inline-block;
-  margin-top: 10px;
-  background: var(--gold);
-  color: #000;
-  padding: 10px 18px;
-  border-radius: 25px;
-  text-decoration: none;
-  font-weight: 600;
-}
-
-/* FOOTER */
-.footer {
-  text-align: center;
-  padding: 30px;
-  color: var(--muted);
-}
-
-/* RESPONSIVE */
-@media(max-width: 900px) {
-  .container {
+  .shell {
+    display: grid;
     grid-template-columns: 1fr;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    gap: 20px;
   }
 
-  .hero h2 {
-    font-size: 26px;
+  /* LEFT SIDE */
+  .left {
+    background: linear-gradient(155deg, var(--navy), #020819);
+    color: #f9fafb;
+    padding: 24px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-soft);
   }
-}
 
+  /* RIGHT SIDE */
+  .right {
+    background: #fff;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-soft);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  /* Titles & headers */
+  .page-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+
+  .page-sub {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+
+  /* Buttons */
+  .btn-ghost {
+    border: 1px solid rgba(249, 250, 251, 0.85);
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 11px;
+    text-decoration: none;
+    color: #f9fafb;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: transparent;
+    transition: background 0.3s, border-color 0.3s;
+  }
+  .btn-ghost:hover {
+    background: rgba(15, 23, 42, 0.2);
+    border-color: rgba(249, 250, 251, 0.9);
+  }
+
+  /* Sections & panels */
+  .panel {
+    background: #f9fafb;
+    border-radius: var(--radius-lg);
+    padding: 16px;
+    border: 1px solid rgba(229, 231, 235, 0.7);
+    box-shadow: var(--shadow-soft);
+    transition: box-shadow 0.3s;
+  }
+  .panel:hover {
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  }
+
+  /* Panel header */
+  .panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .panel-title {
+    font-size: 16px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .panel-title-mark {
+    width: 12px;
+    height: 12px;
+    border-radius: 4px;
+    background: linear-gradient(135deg, var(--gold), #f4d25c);
+  }
+  .pill-small {
+    font-size: 11px;
+    padding: 4px 8px;
+    border-radius: 999px;
+    background: #eff6ff;
+    color: #1d4ed8;
+  }
+
+  /* Panel body */
+  .panel-body {
+    font-size: 14px;
+    margin-top: 12px;
+    color: #111827;
+  }
+
+  /* Panel footer */
+  .panel-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 12px;
+    font-size: 11px;
+    color: var(--muted);
+  }
+
+  /* Lists & Text */
+  .list {
+    margin-top: 8px;
+    padding-left: 16px;
+  }
+  .list li {
+    margin-bottom: 6px;
+  }
+  .payment-note, .map-note {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 8px;
+  }
+
+  /* Copy button styles */
+  .btn-copy {
+    border: none;
+    background: var(--navy-soft);
+    color: #f9fafb;
+    padding: 3px 8px;
+    border-radius: 999px;
+    font-size: 11px;
+    cursor: pointer;
+    margin-left: 6px;
+    transition: background 0.3s;
+  }
+  .btn-copy:hover {
+    background: #112f4e;
+  }
+
+  /* Responsive adjustments */
+  @media(max-width: 768px){
+    body { padding: 8px; }
+    .shell {
+      grid-template-columns: 1fr;
+    }
+  }
 </style>
 </head>
-
 <body>
+<div class="shell">
+  <!-- LEFT SIDE -->
+  <section class="left">
+    <header class="brand-row">
+      <div class="brand-logo">G2</div>
+      <div class="brand-text">
+        <h1>G2 LUXE</h1>
+        <p>Two-bedroom serviced apartment</p>
+        <p class="tagline">6B Ogalade Close, Victoria Island, Lagos</p>
+      </div>
+    </header>
 
-<!-- HEADER -->
-<div class="header">
-  <h1>G2 APARTMENTS</h1>
-  <a href="index.html">← Back Home</a>
-</div>
-
-<!-- HERO -->
-<div class="hero">
-  <h2>Guest Guide</h2>
-  <p>Everything you need for a comfortable and seamless stay</p>
-</div>
-
-<!-- CONTENT -->
-<div class="container">
-
-  <!-- SIDEBAR -->
-  <div class="sidebar">
-    <h3>Apartment Features</h3>
-    <div class="badges">
-      <span class="badge">WiFi</span>
-      <span class="badge">24/7 Power</span>
-      <span class="badge">Security</span>
-      <span class="badge">Netflix</span>
-      <span class="badge">Air Conditioning</span>
-      <span class="badge">Parking</span>
+    <div class="pill-row">
+      <span class="pill"><span class="pill-dot"></span> Designed for 1–4 adults for comfort</span>
+      <span class="pill"><span class="pill-dot"></span> Spacious 2-bedroom luxury finish</span>
+      <span class="pill"><span class="pill-dot"></span> High-speed Wi-Fi</span>
+      <span class="pill"><span class="pill-dot"></span> 3 Smart Tvs</span>
+      <span class="pill"><span class="pill-dot"></span> 3 Rest rooms </span>
+      <span class="pill"><span class="pill-dot"></span> Secured Smart Lock </span>
     </div>
 
-    <h3 style="margin-top:20px;">Contact</h3>
-    <p style="color:var(--muted);">
-      Host: Emmanuel <br>
-      Phone: +234 XXX XXX XXXX <br>
-      Email: your@email.com
-    </p>
-  </div>
-
-  <!-- MAIN -->
-  <div class="main">
-
-    <div class="card">
-      <h3>Check-in & Check-out</h3>
-      <p>
-        Check-in: 2:00 PM <br>
-        Check-out: 11:00 AM <br><br>
-        Early check-in or late check-out may be available upon request.
-      </p>
-    </div>
-
-    <div class="grid-2">
-
-      <div class="card">
-        <h3>WiFi Access</h3>
-        <p>
-          Network: G2-Apartment <br>
-          Password: 12345678
-        </p>
+    <article class="left-card">
+      <h2>Stay summary</h2>
+      <div class="grid-2">
+        <div>
+          <div class="label">Check-in</div>
+          <div class="value">2:00 PM</div>
+        </div>
+        <div>
+          <div class="label">Check-out</div>
+          <div class="value">12:00 PM</div>
+        </div>
+        <div>
+          <div class="label">Wi-Fi Network</div>
+          <div class="value">geetwo_G2</div>
+        </div>
+        <div>
+          <div class="label">Wi-Fi Pass</div>
+          <div class="value">geetwo_2025</div>
+        </div>
+        <div>
+          <div class="label">Apartment type</div>
+          <div class="value">2-bedroom, fully serviced</div>
+        </div>
+        <div>
+          <div class="label">Ideal occupancy</div>
+          <div class="value">1–4 adults for comfort</div>
+        </div>
       </div>
 
-      <div class="card">
-        <h3>Electricity & Power</h3>
-        <p>
-          24/7 power is available. In case of outage, generator backup activates automatically.
-        </p>
+      <div class="address">
+        <span class="label">Property address</span><br />
+        6B Ogalade Close, Victoria Island, Lagos.
       </div>
 
-    </div>
+      <div class="divider"></div>
 
-    <div class="card">
-      <h3>House Rules</h3>
-      <p>
-        • No smoking indoors <br>
-        • No parties or loud noise <br>
-        • Respect neighbors <br>
-        • Turn off appliances when not in use
+      <div class="contact-block">
+        <div class="label">Your host</div>
+        <div class="contact-row">
+          <strong>Queen</strong>
+          <div class="contact-actions">
+            <a class="btn-ghost" href="tel:08166576005">
+              <span>Call</span>
+            </a>
+            <a
+              class="btn-ghost"
+              href="https://wa.me/2348166576005?text=Hi%20Queen,%20I'm%20a%20guest%20at%20G2%20Luxe."
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span>WhatsApp</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="divider"></div>
+      
+      <p style="font-size:12px; opacity:0.9; margin-top:8px; line-height:1.6;">
+        G2 Luxe is situated in one of the best locations in Victoria Island, at the
+        heart of Lagos’ business district and vibrant high-end nightlife.
       </p>
-    </div>
-
-    <div class="card">
-      <h3>Appliances Guide</h3>
-      <p>
-        AC: Use remote to control temperature <br>
-        TV: Netflix available <br>
-        Kitchen: Fully equipped for light cooking
+      
+      <p class="emergency">
+        <span>Security:</span> the building has on-site security 24/7 and a
+        reputable hospital located next door for additional peace of mind.
       </p>
+    </article>
+   <!-- AMBIENT APARTMENT VISUAL -->
+    <article class="panel ambient-panel">
+      <div class="ambient-media">
+        <div class="ambient-slide active" style="background-image:url('Images/living-room2.jpg')"></div>
+        <div class="ambient-slide" style="background-image:url('Images/living-room.jpg')"></div>
+        <div class="ambient-slide" style="background-image:url('Images/kitchen.jpg')"></div>
+        <div class="ambient-slide" style="background-image:url('Images/bedroom1.jpg')"></div>
+        <div class="ambient-slide" style="background-image:url('Images/master-bedroom.jpg')"></div>
+    
+        <div class="ambient-label">Inside G2 Luxe</div>
+      </div>
+    </article>
+
+    <footer class="left-footer">
+      A calm, secure and private base in the heart of Victoria Island.
+    </footer>
+  </section>
+
+  <!-- RIGHT SIDE -->
+  <section class="right">
+    <header class="right-header">
+      <div>
+        <div class="page-title">G2 Luxe - Guest Guide</div>
+        <div class="page-sub">
+          Everything you need for your stay at G2 Luxe.
+        </div>
+      </div>
+      <div class="search-wrap">
+        <div class="search-box">
+          <input
+            id="searchInput"
+            type="text"
+            placeholder="Search: wifi, rules, check-in, dining..."
+          />
+        </div>
+        <span class="badge-soft">Tap a section or start typing</span>
+      </div>
+    </header>
+
+    <!-- MAIN TABS -->
+    <nav class="tab-row" id="mainTabs"></nav>
+
+    <!-- CONTENT + MAP -->
+    <div class="cards-area">
+      <!-- LEFT: text content -->
+      <article class="panel">
+        <header class="panel-header">
+          <div class="panel-title">
+            <span class="panel-title-mark"></span>
+            <span id="panelTitle">Welcome & Overview</span>
+          </div>
+          <span class="pill-small" id="panelTag">Start here</span>
+        </header>
+        <div class="panel-body" id="panelBody"></div>
+        <footer class="panel-footer">
+          <span id="panelUpdated">Last updated: —</span>
+          <span>G2 Luxe · Victoria Island</span>
+        </footer>
+      </article>
+      <!-- RIGHT: Nearby recommendations + map -->
+      <article class="panel">
+        <header class="panel-header">
+          <div class="panel-title">
+            <span class="panel-title-mark"></span>
+            <span>Nearby recommendations</span>
+          </div>
+          <span class="pill-small">Curated around Victoria Island</span>
+        </header>
+
+        <div class="panel-body" style="max-height:none;">
+          <div class="map-type-row" id="mapTabs">
+            <button class="map-pill active" data-type="food">
+              <span class="map-pill-indicator"></span> Food & dining
+            </button>
+            <button class="map-pill" data-type="bars">
+              <span class="map-pill-indicator"></span> Bars & lounges
+            </button>
+            <button class="map-pill" data-type="activities">
+              <span class="map-pill-indicator"></span> Activities & sightseeing
+            </button>
+            <button class="map-pill" data-type="travel">
+              <span class="map-pill-indicator"></span> Travel agencies
+            </button>
+            <button class="map-pill" data-type="workspace">
+              <span class="map-pill-indicator"></span> Workspaces
+            </button>
+            <button class="map-pill" data-type="cinema">
+              <span class="map-pill-indicator"></span> Cinemas
+            </button>
+            <button class="map-pill" data-type="shopping">
+              <span class="map-pill-indicator"></span> Shopping Malls
+            </button>
+            <button class="map-pill" data-type="clubbing">
+              <span class="map-pill-indicator"></span> NightLife & Clubbing
+            </button>
+          </div>
+
+          <div class="rec-list" id="recList"></div>
+
+          <iframe
+            id="mapFrame"
+            class="map-frame"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            src=""
+          ></iframe>
+
+          <p class="map-note">
+            Times and ratings are indicative only. Use “Open in Maps” for
+            live directions from your current location.
+          </p>
+        </div>
+      </article>
     </div>
 
-    <div class="card">
-      <h3>Nearby Places</h3>
-      <p>
-        Restaurants, malls, beaches, and nightlife are within a short distance.
-      </p>
-      <a href="#" class="btn">View Map</a>
-    </div>
-
-  </div>
-
+    <!-- FOOTER -->
+    <footer class="global-footer">
+      <span>© <span id="yearSpan"></span> G2 Luxe · Victoria Island, Lagos</span>
+      <span>Digital guest guide · Private use only</span>
+    </footer>
+  </section>
 </div>
 
-<!-- FOOTER -->
-<div class="footer">
-  © 2026 G2 Apartments. All rights reserved.
-</div>
-
+<!-- ======= Your Script ======= -->
+<script>
+  // Your embedded JavaScript code (unchanged)
+  // (You can keep your script as is, no changes needed here)
+</script>
 </body>
 </html>
